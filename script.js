@@ -105,6 +105,13 @@ startBtn.addEventListener("click", () => {
     showError(monthInput, "This field is required");
     return false;
   }
+
+  if (m > 12) {
+    showError(monthInput, "Month must be between 1 and 12");
+    clearInterval(countdownTimer);
+    backToZero();
+    return false;
+  }
   if (!y) {
     showError(yearInput, "This field is required");
     return false;
@@ -172,32 +179,3 @@ startBtn.addEventListener("click", () => {
   }, 1000);
 });
 
-// const countdownTimer = setInterval(() => {
-//   // target date
-//   const targetDate = new Date(2026, 0, 20);
-//   const currentDate = new Date();
-//   const diff = targetDate - currentDate;
-
-//   const oneDay = 24 * 60 * 60 * 1000;
-//   const oneHour = 60 * 60 * 1000;
-//   const oneMinute = 60 * 1000;
-
-//   const day = Math.floor(diff / oneDay);
-//   daysDisplay.textContent = `${day}`.padStart(2, 0);
-//   const remDayMs = diff % oneDay;
-
-//   const hour = Math.floor(remDayMs / oneHour);
-//   hoursDisplay.textContent = `${hour}`.padStart(2, 0);
-//   const remHourMs = remDayMs % oneHour;
-
-//   const min = Math.floor(remHourMs / oneMinute);
-//   minutesDisplay.textContent = `${min}`.padStart(2, 0);
-//   const remMinMs = remHourMs % oneMinute;
-
-//   const sec = Math.floor(remMinMs / 1000);
-//   secondsDisplay.textContent = `${sec}`.padStart(2, 0);
-
-//   if (day === 0 && hour === 0 && min === 0 && sec === 0) {
-//     clearInterval(countdownTimer);
-//   }
-// }, 1000);
