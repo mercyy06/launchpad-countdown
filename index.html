@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Launch Countdown</title>
+    <link rel="stylesheet" href="src/style.css" />
+    <!-- <link href="/dist/styles.css" rel="stylesheet" /> -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.google.com/specimen/Red+Hat+Text"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body
+    class="bg-[#1e1f29ff] bg-[url('images/bg-stars.svg')] flex flex-col items-center justify-around gap-10 min-h-screen overflow-x-hidden"
+  >
+    <div class="flex flex-col items-center justify-center gap-20">
+      <!-- DATE INPUT -->
+      <div class="flex flex-col items-center justify-center gap-4">
+        <label
+          for="launch date"
+          class="text-white font-bold text-[1rem] md:text-[1.5rem] tracking-[0.3rem] text-center w-[65%] md:w-full"
+          >PICK YOUR LAUNCH DATE</label
+        >
+        <div class="flex items-center justify-center gap-3">
+          <div class="flex items-center justify-center gap-2 md:gap-4">
+            <!-- DAY INPUT -->
+            <div class="flex flex-col gap-2 items-start justify-center">
+              <label
+                for="day"
+                class="labels font-bold text-[0.8rem] md:text-[1.2rem] text-[#fb6087ff]"
+                >DAY</label
+              >
+              <input
+                type="number"
+                placeholder="DD"
+                id="dayInput"
+                class="inputs bg-transparent font-bold border border-white/20 rounded-md w-15 md:w-20 px-2 py-2 text-white placeholder-gray-500 outline-none focus:border-[#fb6087] focus:ring-1 focus:ring-[#fb6087]"
+              />
+              <small
+                class="small hidden font-bold w-[80%] text-red-700 text-[0.8rem]"
+              ></small>
+            </div>
+
+            <!-- MONTH INPUT -->
+            <div class="flex flex-col gap-2 items-start justify-center">
+              <label
+                for="month"
+                class="labels font-bold text-[0.8rem] md:text-[1.2rem] text-[#fb6087ff]"
+                >MONTH</label
+              >
+              <input
+                type="number"
+                placeholder="MM"
+                id="monthInput"
+                class="inputs bg-transparent font-bold border border-white/20 rounded-md w-15 md:w-20 px-2 py-2 text-white placeholder-gray-500 outline-none focus:border-[#fb6087] focus:ring-1 focus:ring-[#fb6087]"
+              />
+              <small
+                class="small hidden font-bold w-[80%] text-red-700 text-[0.8rem]"
+              ></small>
+            </div>
+
+            <!-- YEAR INPUT -->
+            <div class="flex flex-col gap-2 items-start justify-center">
+              <label
+                for="year"
+                class="labels font-bold text-[0.8rem] md:text-[1.2rem] text-[#fb6087ff]"
+                >YEAR</label
+              >
+              <input
+                type="number"
+                placeholder="YYYY"
+                id="yearInput"
+                class="inputs bg-transparent font-bold border border-white/20 rounded-md w-15 md:w-20 px-2 py-2 text-white placeholder-gray-500 outline-none focus:border-[#fb6087] focus:ring-1 focus:ring-[#fb6087]"
+              />
+              <small
+                class="small hidden font-bold w-[80%] text-red-700 text-[0.8rem]"
+              ></small>
+            </div>
+          </div>
+          <button
+            id="startBtn"
+            class="tracking-[0.3rem] bg-[#fb6087ff] text-white text-xs font-bold py-2 px-6 rounded-md transition-colors hover:bg-[#ff80a0] cursor-pointer"
+          >
+            START
+          </button>
+        </div>
+      </div>
+
+      <!-- TIMER -->
+      <div class="flex flex-col items-center justify-center gap-10 px-8">
+        <h1
+          class="text-[#ffffffff] font-bold text-[1rem] md:text-[1.2rem] text-center tracking-[0.3rem]"
+        >
+          WE'RE LAUNCHING SOON
+        </h1>
+
+        <div
+          class="text-[#fb6087ff] text-[3.5rem] font-bold flex items-center justify-center gap-4 md:gap-8"
+        >
+          <!-- DAYS -->
+          <div class="flex flex-col items-center justify-center gap-4">
+            <div
+              class="relative bg-[#343650ff] w-20 h-20 md:w-24 md:h-24 flex items-center justify-center px-3 py-5 rounded-[0.6rem] shadow-[0_6px_0_#191a24ff] overflow-hidden"
+            >
+              <div
+                class="absolute w-full h-1/2 bg-black/15 top-0 left-0 z-0"
+              ></div>
+              <div
+                class="absolute inset-0 flex justify-center items-center z-10"
+              ></div>
+              <span id="days">00</span>
+              <div
+                class="absolute -left-1 top-1/2 w-2 h-2 rounded-full bg-[#191a24ff] -translate-y-1/2 z-20"
+              ></div>
+              <div
+                class="absolute -right-1 top-1/2 w-2 h-2 rounded-full bg-[#191a24ff] -translate-y-1/2 z-20"
+              ></div>
+            </div>
+            <p class="text-[#8486a9ff] text-[0.8rem] tracking-[0.3rem]">DAYS</p>
+          </div>
+
+          <!-- HOURS -->
+          <div class="flex flex-col items-center justify-center gap-4">
+            <div
+              class="relative bg-[#343650ff] w-20 h-20 md:w-24 md:h-24 flex items-center justify-center px-3 py-5 rounded-[0.6rem] shadow-[0_6px_0_#191a24ff] overflow-hidden"
+            >
+              <div
+                class="absolute w-full h-1/2 bg-black/15 top-0 left-0 z-0"
+              ></div>
+              <div
+                class="absolute inset-0 flex justify-center items-center z-10"
+              ></div>
+              <span id="hour">00</span>
+              <div
+                class="absolute -left-1 top-1/2 w-2 h-2 rounded-full bg-[#191a24ff] -translate-y-1/2 z-20"
+              ></div>
+              <div
+                class="absolute -right-1 top-1/2 w-2 h-2 rounded-full bg-[#191a24ff] -translate-y-1/2 z-20"
+              ></div>
+            </div>
+            <p class="text-[#8486a9ff] text-[0.8rem] tracking-[0.3rem]">
+              HOURS
+            </p>
+          </div>
+
+          <!-- MINUTES -->
+          <div class="flex flex-col items-center justify-center gap-4">
+            <div
+              class="relative bg-[#343650ff] w-20 h-20 md:w-24 md:h-24 flex items-center justify-center px-3 py-5 rounded-[0.6rem] shadow-[0_6px_0_#191a24ff] overflow-hidden"
+            >
+              <div
+                class="absolute w-full h-1/2 bg-black/15 top-0 left-0 z-0"
+              ></div>
+              <div
+                class="absolute inset-0 flex justify-center items-center z-10"
+              ></div>
+              <span id="minutes">00</span>
+              <div
+                class="absolute -left-1 top-1/2 w-2 h-2 rounded-full bg-[#191a24ff] -translate-y-1/2 z-20"
+              ></div>
+              <div
+                class="absolute -right-1 top-1/2 w-2 h-2 rounded-full bg-[#191a24ff] -translate-y-1/2 z-20"
+              ></div>
+            </div>
+            <p class="text-[#8486a9ff] text-[0.8rem] tracking-[0.3rem]">
+              MINUTES
+            </p>
+          </div>
+
+          <!-- SECONDS -->
+          <div class="flex flex-col items-center justify-center gap-4">
+            <div
+              class="relative bg-[#343650ff] w-20 h-20 md:w-24 md:h-24 flex items-center justify-center px-3 py-5 rounded-[0.6rem] shadow-[0_6px_0_#191a24ff] overflow-hidden"
+            >
+              <div
+                class="absolute w-full h-1/2 bg-black/15 top-0 left-0 z-0"
+              ></div>
+              <div
+                class="absolute inset-0 flex justify-center items-center z-10"
+              ></div>
+              <span id="seconds">00</span>
+              <div
+                class="absolute -left-1 top-1/2 w-2 h-2 rounded-full bg-[#191a24ff] -translate-y-1/2 z-20"
+              ></div>
+              <div
+                class="absolute -right-1 top-1/2 w-2 h-2 rounded-full bg-[#191a24ff] -translate-y-1/2 z-20"
+              ></div>
+            </div>
+            <p class="text-[#8486a9ff] text-[0.8rem] tracking-[0.3rem]">
+              SECONDS
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer
+      class="flex items-center justify-center gap-5 mb-8 bg-[url('images/pattern-hills.svg')] bg-no-repeat"
+    >
+      <a href="#">
+        <img
+          src="images/icon-facebook.svg"
+          alt="icon-facebook"
+          class="w-4 hover:text-[#fb6087ff] cursor-pointer"
+      /></a>
+      <a href="#"
+        ><img
+          src="images/icon-pinterest.svg"
+          alt="icon-pinterest"
+          class="w-4 cursor-pointer"
+      /></a>
+      <a href="#"
+        ><img
+          src="images/icon-instagram.svg"
+          alt="icon-instagram"
+          class="w-4 cursor-pointer"
+      /></a>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
